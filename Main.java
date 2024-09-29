@@ -52,11 +52,14 @@ public class Main {
         System.out.println("Input your int value: ");
         Scanner scanner = new Scanner(System.in);
         String usinput = scanner.nextLine();
+        Float usout = Float.parseFloat(usinput);
+        System.out.println("Your int value in float: " + usout);
 
 
         System.out.println("Input your float value: ");
         Scanner scanner1 = new Scanner(System.in);
         String usinput1 = scanner1.nextLine();
+        System.out.println("Your float value: " + usinput1);
 
         scanner.close();
     }
