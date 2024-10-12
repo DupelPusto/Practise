@@ -1,66 +1,47 @@
-import java.util.Scanner;
 import java.text.MessageFormat;
+import java.util.Scanner;
 
 public class Main {
-
     public static void main(String[] args)
     {
+        String outstr = "\nFirst enter: {0}\nSecond enter: {1}\nThird enter: {2}\nFourth enter: {3}";
 
-        String infostr = "Тип: {0}\nРозмір: {1}\nЗначення мін: {2}\nЗначення макс: {3}\n";
+        Scanner sc = new Scanner(System.in);
 
-        System.out.println("Примітивні типи даних в Java:");
-        String byteinfo0 = "Byte";
-        short byteinfo1 = Byte.SIZE / 8;
-        short byteinfo2 = Byte.MIN_VALUE;
-        short byteinfo3 = Byte.MAX_VALUE;
+        System.out.println("Enter your int value:");
+        int intvalue = sc.nextInt();
 
-        String byteout = MessageFormat.format(infostr,byteinfo0, byteinfo1, byteinfo2, byteinfo3);
+        System.out.println("Enter your double value:");
+        double doublevalue = sc.nextDouble();
 
-        String intinfo0 = "Int";
-        int intinfo1 = Integer.SIZE / 8;
-        int intinfo2 = Integer.MIN_VALUE;
-        int intinfo3 = Integer.MAX_VALUE;
-        String intout = MessageFormat.format(infostr,intinfo0,intinfo1,intinfo2,intinfo3);
+        System.out.println("Enter your String value:");
+        String stringvalue = sc.next();
 
-        String longinfo0 = "Long";
-        long longinfo1 = Long.SIZE;
-        long longinfo2 = Long.MIN_VALUE;
-        long longinfo3 = Long.MAX_VALUE;
-        String longout = MessageFormat.format(infostr,longinfo0,longinfo1,longinfo2,longinfo3);
+        System.out.println("Enter your boolean value:");
+        boolean booleanvalue = sc.nextBoolean();
 
-        String floatinfo0 = "Float";
-        short floatinfo1 = Float.SIZE / 8;
-        float floatinfo2 = Float.MIN_VALUE;
-        float floatinfo3 = Float.MAX_VALUE;
-        String floatout = MessageFormat.format(infostr,floatinfo0,floatinfo1,floatinfo2,floatinfo3);
+        String outmessage = MessageFormat.format(outstr, intvalue, doublevalue, stringvalue, booleanvalue);
+        System.out.println(outmessage);
 
-        String doubleinfo0 = "Double";
-        short doubleinfo1 = Double.SIZE / 8;
-        double doubleinfo2 = Double.MIN_VALUE;
-        double doubleinfo3 = Double.MAX_VALUE;
-        String doubleout = MessageFormat.format(infostr,doubleinfo0,doubleinfo1,doubleinfo2,doubleinfo3);
+        System.out.println("\n--- Виведення даних у різних форматах ---\n");
+        System.out.println(String.format("Ціле число: %d", intvalue));
+        System.out.println(String.format("Число з плаваючою точкою: %.2f", doublevalue));
+        System.out.println(String.format("Рядок: %s", stringvalue));
+        System.out.println(String.format("Логічне значення: %b", booleanvalue));
 
+        System.out.println("\nВиведення за допомогою System.out.printf():");
 
-        System.out.println(byteout);
-        System.out.println(intout);
-        System.out.println(longout);
-        System.out.println(floatout);
-        System.out.println(doubleout);
+        System.out.printf("Ціле число: %d%n", intvalue);
+        System.out.printf("Число з плаваючою точкою: %.2f%n", doublevalue);
+        System.out.printf("Рядок: %s%n", stringvalue);
+        System.out.printf("Логічне значення: %b%n", booleanvalue);
 
+        System.out.println("\nВиведення за допомогою оператора +:");
+        System.out.println("Ціле число: " + intvalue);
+        System.out.println("Число з плаваючою точкою: " + String.format("%.2f", doublevalue));
+        System.out.println("Рядок: " + stringvalue);
+        System.out.println("Логічне значення: " + booleanvalue);
 
-
-        System.out.println("Input your int value: ");
-        Scanner scanner = new Scanner(System.in);
-        String usinput = scanner.nextLine();
-        Float usout = Float.parseFloat(usinput);
-        System.out.println("Your int value in float: " + usout);
-
-
-        System.out.println("Input your float value: ");
-        Scanner scanner1 = new Scanner(System.in);
-        String usinput1 = scanner1.nextLine();
-        System.out.println("Your float value: " + usinput1);
-
-        scanner.close();
+        sc.close();
     }
 }
